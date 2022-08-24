@@ -62,10 +62,13 @@ public class testLogin {
 
     public static void takeScreenshot(String methodName){
             try {
-                TakesScreenshot sc = (TakesScreenshot) driver;
-                File scFile = sc.getScreenshotAs(OutputType.FILE);
-                File newFile = new File("./screenShots/"+ methodName + "_"+ getTimeStamp()+ ".png");
-                FileUtils.copyFile(scFile,newFile);
+                if(driver!=null){
+                    TakesScreenshot sc = (TakesScreenshot) driver;
+                    File scFile = sc.getScreenshotAs(OutputType.FILE);
+                    File newFile = new File("./screenShots/"+ methodName + "_"+ getTimeStamp()+ ".png");
+                    FileUtils.copyFile(scFile,newFile);
+                }
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
