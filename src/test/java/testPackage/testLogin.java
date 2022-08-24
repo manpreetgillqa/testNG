@@ -40,7 +40,7 @@ public class testLogin {
     }
 
 
-    @Test(retryAnalyzer = RetryAnalyser.class)
+    @Test
     public void testGoogle() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "./driver/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -49,13 +49,15 @@ public class testLogin {
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.navigate().to("https://google.com/");
-        Thread.sleep(2000);
         Assert.assertEquals(randomNumber(100)%2,0);
     }
 
     @AfterMethod
     public void teardown()  {
-        driver.quit();
+        if(driver != null){
+            driver.quit();
+        }
+
     }
 
     public static void takeScreenshot(String methodName){
@@ -78,4 +80,5 @@ public class testLogin {
         Timestamp timestamp = new Timestamp(time);
         return dateFormat.format(timestamp);
     }
+
 }
