@@ -40,7 +40,7 @@ public class testLogin {
     }
 
 
-    @Test
+    @Test(enabled = false)
     public void testGoogle() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "./driver/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
