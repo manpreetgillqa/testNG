@@ -19,7 +19,7 @@ public class RetryAnalyser implements IRetryAnalyzer {
     public boolean retry(ITestResult iTestResult) {
         if(counter<retries){
             counter++;
-            testLogin.takeScreenshot(iTestResult.getMethod().getMethodName());
+            //testLogin.takeScreenshot(iTestResult.getMethod().getMethodName());
             return true;
         }
         return false;
